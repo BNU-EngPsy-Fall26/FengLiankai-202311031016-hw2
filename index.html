@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>注意实验室 · 看见与看不见</title>
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<!-- ============ 首页 ============ -->
+<div id="page-home" class="page active">
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <span>注意实验室</span>
+      <span class="brand-sub">工程心理学 · 认知实验</span>
+    </div>
+    <div class="topbar-right" id="topbar-subject"></div>
+  </header>
+
+  <main class="home-main">
+    <section class="hero">
+      <h1 class="hero-title">看见与看不见</h1>
+      <p class="hero-sub">三个关于「注意」的经典实验 · 每个约 2–10 分钟</p>
+    </section>
+
+    <!-- 知情同意 + 匿名编号 -->
+    <section class="consent-card">
+      <h2 class="card-title">开始前，请先了解</h2>
+      <div class="consent-body">
+        <p>这是一个用于课程教学的心理学注意实验。你将完成若干简单的按键或计数任务，实验数据（含可能的摄像头注视坐标）仅用于教学与科研分析，<strong>匿名</strong>存储，不包含姓名、学号等可识别信息。</p>
+        <p>你可以随时关闭页面退出，不会产生任何影响。整个流程约 5–8 分钟。</p>
+      </div>
+      <div class="consent-actions">
+        <label class="nick-input">
+          <span class="field-label">你的昵称或编号（不要填真实姓名）：</span>
+          <input type="text" id="nickname" placeholder="如：P01 / 小A / 任意编号" maxlength="20" autocomplete="off">
+        </label>
+        <label class="consent-check">
+          <input type="checkbox" id="consent">
+          <span>我已知情并同意参与，同意按上述说明匿名使用我的数据</span>
+        </label>
+        <div class="eye-option">
+          <label class="eye-check">
+            <input type="checkbox" id="eye-enable">
+            <span>启用摄像头眼动追踪（可选，用于加分项；会请求摄像头授权）</span>
+          </label>
+          <div class="eye-hint" id="eye-hint"></div>
+        </div>
+      </div>
+      <div class="consent-foot">
+        <span class="hint">数据将上传至注意实验室收数接口，也可导出 CSV 本地保存</span>
+      </div>
+    </section>
+
+    <!-- 实验列表 -->
+    <section class="exp-grid">
+      <button class="exp-card" data-exp="search" disabled>
+        <span class="exp-num">实验 1</span>
+        <span class="exp-name">视觉搜索</span>
+        <span class="exp-desc">在字母里找目标 · 旋转角度会影响你的搜索速度吗？</span>
+        <span class="exp-tag">约 8–10 分钟</span>
+        <span class="exp-check" data-check="search" hidden>✓ 已完成</span>
+      </button>
+      <button class="exp-card" data-exp="stroop" disabled>
+        <span class="exp-num">实验 2</span>
+        <span class="exp-name">Stroop 效应</span>
+        <span class="exp-desc">字的颜色 vs 字的意义 · 谁在拖慢你？</span>
+        <span class="exp-tag">约 1.5 分钟</span>
+        <span class="exp-check" data-check="stroop" hidden>✓ 已完成</span>
+      </button>
+      <button class="exp-card" data-exp="ior" disabled>
+        <span class="exp-num">实验 3</span>
+        <span class="exp-name">返回抑制</span>
+        <span class="exp-desc">刚闪过的位置 · 更快还是更慢被察觉？</span>
+        <span class="exp-tag">约 2 分钟</span>
+        <span class="exp-check" data-check="ior" hidden>✓ 已完成</span>
+      </button>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>基于 Treisman &amp; Gelade (1980) · Stroop (1935) · Posner &amp; Cohen (1984) 的经典范式改进</span>
+  </footer>
+</div>
+
+<!-- ============ 实验容器（三个实验共用外壳） ============ -->
+<div id="page-exp" class="page">
+  <header class="exp-topbar">
+    <button class="back-btn" id="exp-back">← 返回</button>
+    <span class="exp-title" id="exp-title"></span>
+    <span class="exp-progress" id="exp-progress"></span>
+  </header>
+  <div class="exp-stage" id="exp-stage"><!-- 每个实验渲染自己的舞台 --></div>
+</div>
+
+<script src="./js/config.js"></script>
+<script src="./js/utils.js"></script>
+<script src="./js/exp-search.js"></script>
+<script src="./js/exp-stroop.js"></script>
+<script src="./js/exp-ior.js"></script>
+<script src="./js/results.js"></script>
+<script src="./js/stats.js"></script>
+<script src="./js/calibration.js"></script>
+<script src="./js/admin.js"></script>
+<script src="./js/app.js"></script>
+</body>
+</html>
